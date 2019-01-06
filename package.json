@@ -4,7 +4,7 @@
   "description": "Module to download files and store them locally",
   "main": "MMM-FileDownloader.js",
   "scripts": {},
-  "author": "Christophe MICHEL @schnibel",
+  "author": "Schnibel @schnibel",
   "license": "MIT",
   "devDependencies": {
     "request": "latest",
