@@ -1,7 +1,7 @@
 /* Magic Mirror
  * Module: MMM-FileDownloader
  *
- * By Christophe MICHEL @schnibel
+ * By Schnibel @schnibel
  * January 2019
  * MIT Licensed.
  *
