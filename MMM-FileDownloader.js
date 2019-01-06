@@ -14,43 +14,45 @@ Module.register("MMM-FileDownloader",{
         animationSpeed: 2.5 * 1000,
         max_parallel_download: 3,
         title: "File Downloader",
+        show_table: true,
     },
 
 	// Override dom generator.
 	getDom: function() {
         var table = document.createElement("table");
         
-        var thead = document.createElement("thead");
-            // Table details headers
-	        var tr = document.createElement("tr");
-                var th = document.createElement("th");
-                th.classList.add("xsmall", "bg-muted");
-                th.style.textAlign = 'center';
-                th.style.align = 'center';
-                th.setAttribute("scope", "col");
-                th.textContent = this.config.title;
-                tr.appendChild(th);
-            thead.appendChild(tr);
-        table.appendChild(thead);
+        if (this.config.show_table) {
+            var thead = document.createElement("thead");
+                // Table details headers
+                var tr = document.createElement("tr");
+                    var th = document.createElement("th");
+                    th.classList.add("xsmall", "bg-muted");
+                    th.style.textAlign = 'center';
+                    th.style.align = 'center';
+                    th.setAttribute("scope", "col");
+                    th.textContent = this.config.title;
+                    tr.appendChild(th);
+                thead.appendChild(tr);
+            table.appendChild(thead);
 
-        var tbody = document.createElement("tbody");
-            var tr = document.createElement("tr");
-                var td = document.createElement("td");
-                td.classList.add("xsmall");
-                td.style.align = 'center';
-                td.textContent = (((this.message !== undefined) && (this.message !== "") && (!this.message.startsWith(this.translate("downloading")))) ? (this.config.files.length + " " + this.translate("downloaded")) : (""));
-                tr.appendChild(td);
-            tbody.appendChild(tr);
-            tr = document.createElement("tr");
-                td = document.createElement("td");
-                td.classList.add("xsmall");
-                td.style.align = 'center';
-                td.textContent = (((this.message !== undefined) && (this.message !== "")) ? (this.message) : ("")) ;
-                tr.appendChild(td);
-            tbody.appendChild(tr);
+            var tbody = document.createElement("tbody");
+                var tr = document.createElement("tr");
+                    var td = document.createElement("td");
+                    td.classList.add("xsmall");
+                    td.style.align = 'center';
+                    td.textContent = (((this.message !== undefined) && (this.message !== "") && (!this.message.startsWith(this.translate("downloading")))) ? (this.config.files.length + " " + this.translate("downloaded")) : (""));
+                    tr.appendChild(td);
+                tbody.appendChild(tr);
+                tr = document.createElement("tr");
+                    td = document.createElement("td");
+                    td.classList.add("xsmall");
+                    td.style.align = 'center';
+                    td.textContent = (((this.message !== undefined) && (this.message !== "")) ? (this.message) : ("")) ;
+                    tr.appendChild(td);
+                tbody.appendChild(tr);
 
-        table.appendChild(tbody);
-
+            table.appendChild(tbody);
+        }
         return table
 	},
 
